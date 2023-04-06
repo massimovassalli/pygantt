@@ -10,18 +10,14 @@ parser = argparse.ArgumentParser(
                     description='Produces a figure of the Gantt chart, to be saved. Suggested formats are PNG and SVG, the latter being editable.',
                     epilog='-- good luck with your project!')
 
-parser.add_argument('filename')
+parser.add_argument('filename',help='The json file containing the structure')
+
 args = parser.parse_args()
 #open json file
 f = open(args.filename,'r')
 all = json.load(f)
 f.close()
 all = all[0]
-
-#these parameters influence the rendering
-left_delta = 0.5
-right_delta = 1.0
-barheight = 1.0
 
 gantt = bg.gantt(all)
 
@@ -30,6 +26,10 @@ plt.rcParams.update({'font.size': gantt.fontsize})
 #prepare the canvas
 base = gantt.aspectratio
 factor = gantt.scalefactor
+left_delta = gantt.ldelta
+right_delta = gantt.rdelta
+barheight = 2.0*gantt.barh/100
+
 fig,ax = plt.subplots(figsize=(base[0]*factor,base[1]*factor))
 
 ax.grid(True,'both')

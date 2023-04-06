@@ -4,6 +4,8 @@
     "title":"Gantt chart for my project",
     "aspectratio":"A4",
     "scalefactor":1.0,
+    "ldelta":0.5,
+    "rdelta":1.0,
     "sets":[
       {"id":"Milestones","text_color":"white","data":[6,12,18],"color":"b","fcolor":"k","symbol":"o","labels":["MS1","MS2-3","MS4"]},
       {"id":"SC Meetings","data":[2,13,18,24],"color":"r","symbol":"o","size":5},

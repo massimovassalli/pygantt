@@ -100,6 +100,9 @@ class gantt(object):
 
         self.scalefactor = float(setValue('scalefactor',all,1.0))
         self.fontsize = int(setValue('fontsize',all,10))
+        self.ldelta = float(setValue('ldelta',all,0.5))
+        self.rdelta = float(setValue('rdelta',all,1))
+        self.barh = float(setValue('barh',all,50))
         
         self.defaults = {'wp_color':'b','task_color':'g','set_color':'b','text_color':'w',
                          'font_size':10,'font_size_labels':8}
